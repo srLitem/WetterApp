@@ -63,6 +63,8 @@ class _Topbar extends State<TopBar>{
                     Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+                        SearchB(17.0),
+                        SizedBox(width: 5,),
                         Text(
                           widget.city, //Name of the city
                           style: TextStyle(
@@ -71,7 +73,6 @@ class _Topbar extends State<TopBar>{
                             fontFamily: 'Sans',
                           ),
                         ),
-                        SearchB(17.0),
                       ],
                     ),
                   ],

@@ -25,6 +25,7 @@ class _StructureState extends State<Structure> {
     weatherBloc = BlocProvider.of<WeatherBloc>(context);
     weatherBloc.add(FetchData('Amsterdam'));
   }
+
   @override
   Widget build(BuildContext context) {
   String imgBack;
@@ -35,10 +36,10 @@ class _StructureState extends State<Structure> {
               if (state is WeatherShowState){
                 imgBack = state.weather.imageURL;
                 return buildWeather(state.weather);
-              } else if (state is WeatherToSearchtate){
+              } else if (state is WeatherToSearchState){
                 return buildSearch(imgBack);
               } else if (state is WeatherErrorState) {
-                return errorPage(state.message);
+                return buildError(state.message);
               } else {
                 return buildLogo();
               }
@@ -61,7 +62,7 @@ class _StructureState extends State<Structure> {
     return WetterLogo();
   }
 
-  Widget errorPage(String message){
+  Widget buildError(String message){
     return ErrorPage(message);
   }
 }

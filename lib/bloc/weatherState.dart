@@ -13,7 +13,7 @@ class WeatherShowState extends WeatherState{
   WeatherModel get weather => weatherModel;
 }
 
-class WeatherToSearchtate extends WeatherState{}
+class WeatherToSearchState extends WeatherState{}
 
 class WeatherErrorState extends WeatherState{
   String message;

@@ -23,6 +23,11 @@ class Background extends StatelessWidget{
         ),
         ),
         Container(
+          decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.4),
+          ),
+        ),
+        Container(
           child: FlareActor(
             'assets/animations/background_loop.flr',
             alignment: Alignment.center,

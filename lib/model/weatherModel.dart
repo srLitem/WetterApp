@@ -8,7 +8,6 @@ class WeatherModel{
   var imageURL;
   var location;
 
-
   WeatherModel(
       this.summary,
       this.temperature,

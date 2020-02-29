@@ -30,6 +30,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_dotenv: ^2.1.0
 
 flutter:
 

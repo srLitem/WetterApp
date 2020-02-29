@@ -27,6 +27,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState>{
       }catch(e){
         yield WeatherErrorState(e.toString());
       }
+    }else {
+      yield WeatherToSearchState();
     }
   }
 

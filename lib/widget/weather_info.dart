@@ -12,14 +12,13 @@ class WeatherInfo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return Column(
       children: <Widget>[
        Container(
         child: Image.asset(
               'assets/icons/$iconito.png',
-              scale: 3,
+              scale: 3.5,
               color: Colors.white,
         ),
        ),
@@ -48,9 +47,9 @@ class WeatherInfo extends StatelessWidget{
             Column(
               children: <Widget>[
                 Text(
-                  temperature.toString() + '°',
+                  temperature.round().toString() + '°',
                   style: TextStyle(
-                    fontSize: 70,
+                    fontSize: 80,
                     fontWeight: FontWeight.bold,
                     color: Colors.white.withOpacity(.9),
                   ),
@@ -87,7 +86,7 @@ class WeatherInfo extends StatelessWidget{
                     right: 30,
                   ),
                   child: Text(
-                    'There is a ' + precip.toString() + '% chance of rain',
+                    'There is a ' + precip.round().toString() + '% chance of rain',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
