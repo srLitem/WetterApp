@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 class WetterLogo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    String animationName = 'Untitled';
-    // TODO: implement build
     return Scaffold(
       body: Stack(
         children: <Widget>[

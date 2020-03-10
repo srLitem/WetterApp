@@ -10,7 +10,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState>{
   WeatherBloc(this.repo);
 
   @override
-  // TODO: implement initialState
   WeatherState get initialState => WeatherInitialState();
 
   @override

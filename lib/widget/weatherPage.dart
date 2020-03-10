@@ -14,7 +14,6 @@ class WeatherPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Stack(
         children: <Widget>[

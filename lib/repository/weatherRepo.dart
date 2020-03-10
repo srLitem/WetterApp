@@ -12,6 +12,7 @@ class WeatherRepoImpl implements WeatherRepo{
 
   Future<WeatherModel> getData(String city) async{
     String apiUrl = 'http://litem-weather-webapp.herokuapp.com/weather?address=$city';
+    debugPrint(apiUrl);
     http.Response response = await http.get(apiUrl);
     if(response.statusCode ==200) {
       var jsonData = json.decode(response.body);

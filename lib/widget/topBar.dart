@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
-import 'package:the_wetter/model/weatherModel.dart';
 import 'package:the_wetter/widget/searchB.dart';
 import 'package:the_wetter/widget/searchPage.dart';
 
@@ -14,7 +13,6 @@ class TopBar extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _Topbar();
   }
 
@@ -24,8 +22,6 @@ class _Topbar extends State<TopBar>{
 
   @override
   Widget build(BuildContext context) {
-
-    // TODO: implement build
     return Hero(
       tag: 'Search',
       child: Center(

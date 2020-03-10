@@ -9,7 +9,6 @@ class ErrorPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Center(
         child: Column(
@@ -44,7 +43,7 @@ class ErrorPage extends StatelessWidget{
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
-                fontWeight: FontWeight.bold, //TODO Create button to go to home
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],

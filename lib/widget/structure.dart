@@ -20,7 +20,6 @@ class _StructureState extends State<Structure> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     weatherBloc = BlocProvider.of<WeatherBloc>(context);
     weatherBloc.add(FetchData('Amsterdam'));

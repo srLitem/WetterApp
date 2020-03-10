@@ -39,6 +39,7 @@ flutter:
     - assets/img/
     - assets/icons/
     - assets/animations/
+    - .env
   fonts:
     - family: Inconsolata
       fonts:

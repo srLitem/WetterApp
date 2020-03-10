@@ -1,6 +1,5 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:the_wetter/model/weatherModel.dart';
 
 class Background extends StatelessWidget{
   Color back_color;
@@ -11,7 +10,6 @@ class Background extends StatelessWidget{
   Widget build(BuildContext context) {
     String animation_name = 'Background Loop';
 
-    // TODO: implement build
     return Stack(
       children: <Widget>[
         Container( //Background image

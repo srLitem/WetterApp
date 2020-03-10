@@ -27,7 +27,6 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     aController = AnimationController(duration: Duration(milliseconds: 200), vsync: this);
 
