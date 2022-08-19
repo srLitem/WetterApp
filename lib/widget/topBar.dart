@@ -5,9 +5,9 @@ import 'package:the_wetter/widget/searchPage.dart';
 
 class TopBar extends StatefulWidget{
 
-  String city;
-  String imgURL;
-  WeatherBloc weatherBloc;
+  String? city;
+  String? imgURL;
+  WeatherBloc? weatherBloc;
 
   TopBar(this.city, this.weatherBloc, this.imgURL);
 
@@ -62,7 +62,7 @@ class _Topbar extends State<TopBar>{
                         SearchB(17.0),
                         SizedBox(width: 5,),
                         Text(
-                          widget.city, //Name of the city
+                          widget.city!, //Name of the city
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,

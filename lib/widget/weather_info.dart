@@ -103,7 +103,7 @@ class WeatherInfo extends StatelessWidget{
   }
 
   String day(){
-    String result;
+    late String result;
     switch(DateTime.now().weekday){
       case 1:
         result = 'Monday';

@@ -7,8 +7,8 @@ import 'package:the_wetter/widget/background.dart';
 
 class SearchPage extends StatefulWidget {
   Color color;
-  WeatherBloc weatherBloc;
-  String imgURL;
+  WeatherBloc? weatherBloc;
+  String? imgURL;
   SearchPage(this.color, this.weatherBloc, this.imgURL);
 
   @override
@@ -23,8 +23,8 @@ class _SearchPageState extends State<SearchPage>
   bool SearchV = true; //Visibility of the search button
 
   //Animation
-  AnimationController aController;
-  Animation<double> animation;
+  late AnimationController aController;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -120,7 +120,7 @@ class _SearchPageState extends State<SearchPage>
                         child: InkWell(
                           onTap: () {
                             if (cityController.text.length != 0) {
-                              widget.weatherBloc.add(FetchData(cityController
+                              widget.weatherBloc!.add(FetchData(cityController
                                   .text)); //Send the city to the Bloc
                               Navigator.pop(context);
                               print('Search exit');
@@ -216,10 +216,10 @@ class _SearchPageState extends State<SearchPage>
     }
   }
 
-  setCity(String city, int index) {
+  setCity(String? city, int index) {
     print(cityList[index]);
     cityController.text = cityList[index];
-    widget.weatherBloc.add(FetchData(cityController
+    widget.weatherBloc!.add(FetchData(cityController
         .text)); //Send the city to the Bloc, this can be added to a function in the future
     Navigator.pop(context);
     print('Search exit');

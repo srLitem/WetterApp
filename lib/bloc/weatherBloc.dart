@@ -6,8 +6,8 @@ import 'package:the_wetter/model/weatherModel.dart';
 import 'package:the_wetter/repository/weatherRepo.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  WeatherRepo repo;
-  WeatherModel weatherInfo;
+  late WeatherRepo repo;
+  WeatherModel? weatherInfo;
 
   WeatherBloc() : super(WeatherInitialState());
 

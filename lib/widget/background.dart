@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget{
   Color back_color;
-  String back_img;
+  String? back_img;
   Background(this.back_color, this.back_img);
 
   @override
@@ -16,7 +16,7 @@ class Background extends StatelessWidget{
         decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(back_img),
+              image: NetworkImage(back_img!),
           ),
         ),
         ),

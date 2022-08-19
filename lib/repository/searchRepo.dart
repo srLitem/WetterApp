@@ -9,8 +9,8 @@ abstract class SearchRepo {
 }
 
 class SearchRepoImpl implements SearchRepo {
-  List<String> _places = [];
-  String apiKey = DotEnv().env['GMAPKEY'];
+  List<String?> _places = [];
+  String? apiKey = DotEnv().env['GMAPKEY'];
 
   Future<List> getList(String cityQ) async {
     debugPrint('Searching API location for $cityQ');

@@ -16,18 +16,18 @@ class Structure extends StatefulWidget{
 
 class _StructureState extends State<Structure> {
 
-  WeatherBloc weatherBloc;
+  WeatherBloc? weatherBloc;
 
   @override
   void initState() {
     super.initState();
     weatherBloc = BlocProvider.of<WeatherBloc>(context);
-    weatherBloc.add(FetchData('Amsterdam'));
+    weatherBloc!.add(FetchData('Amsterdam'));
   }
 
   @override
   Widget build(BuildContext context) {
-  String imgBack;
+  String? imgBack;
     return Scaffold(
         body: Container(
           child: BlocBuilder<WeatherBloc, WeatherState>(
@@ -53,7 +53,7 @@ class _StructureState extends State<Structure> {
     return WeatherPage(wm, weatherBloc);
   }
 
-  Widget buildSearch(String imgURL){
+  Widget buildSearch(String? imgURL){
     return SearchPage(Colors.white70, weatherBloc, imgURL);
   }
 
