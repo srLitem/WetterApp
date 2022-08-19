@@ -15,7 +15,8 @@ class SearchPage extends StatefulWidget {
   _SearchPageState createState() => _SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateMixin{
+class _SearchPageState extends State<SearchPage>
+    with SingleTickerProviderStateMixin {
   TextEditingController cityController = new TextEditingController();
   List cityList = [];
   List test = ['City1', 'City2', 'City3'];
@@ -28,24 +29,26 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    aController = AnimationController(duration: Duration(milliseconds: 200), vsync: this);
+    aController =
+        AnimationController(duration: Duration(milliseconds: 200), vsync: this);
 
-    animation = Tween<double>( //This controls the values of the animation since it is from 0 to 1 by default
+    animation = Tween<double>(
+      //This controls the values of the animation since it is from 0 to 1 by default
       begin: 0,
       end: -230,
-    ).animate(aController)..addListener(
-        (){
-         setState(() {}); //This allows to set the state each time the value changes, the updated value is already in the animation field
-        });
+    ).animate(aController)
+      ..addListener(() {
+        setState(
+            () {}); //This allows to set the state each time the value changes, the updated value is already in the animation field
+      });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Hero(
       tag: 'Search',
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: <Widget>[
             Stack(
@@ -54,8 +57,8 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
                 Center(
                   child: Container(
                     padding: EdgeInsets.all(100),
-                    height: MediaQuery.of(context).size.height-150,
-                    width: MediaQuery.of(context).size.width-20,
+                    height: MediaQuery.of(context).size.height - 150,
+                    width: MediaQuery.of(context).size.width - 20,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey.withOpacity(0.6),
@@ -86,17 +89,17 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
                               fontSize: 32,
                               color: Colors.white.withOpacity(0.6),
                             ),
-                          )
-                      ),
+                          )),
                       ListView.builder(
                           itemCount: cityList.length,
                           shrinkWrap: true,
-                          itemBuilder: (context, index){
+                          itemBuilder: (context, index) {
                             return Column(
                               children: <Widget>[
                                 Center(
                                   child: GestureDetector(
-                                    onTap: () => setCity(cityList[index], index),
+                                    onTap: () =>
+                                        setCity(cityList[index], index),
                                     child: Text(
                                       cityList[index],
                                       textAlign: TextAlign.center,
@@ -117,44 +120,40 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
                         child: InkWell(
                           onTap: () {
                             if (cityController.text.length != 0) {
-                              widget.weatherBloc.add(FetchData(cityController.text)); //Send the city to the Bloc
+                              widget.weatherBloc.add(FetchData(cityController
+                                  .text)); //Send the city to the Bloc
                               Navigator.pop(context);
                               print('Search exit');
                             } else {
                               showDialog(
                                 context: context,
-                                builder: (_) =>
-                                    AlertDialog(
-                                      title: Text(
-                                          'Yikes...',
+                                builder: (_) => AlertDialog(
+                                  title: Text('Yikes...',
+                                      style: TextStyle(
+                                        fontSize: 23,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      )),
+                                  content: Text('C\'mon! Give me a city :(',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                      )),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                        child: Text(
+                                          'Oh, sure!',
                                           style: TextStyle(
-                                            fontSize: 23,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black,
-                                          )
-                                      ),
-                                      content: Text(
-                                          'C\'mon! Give me a city :(',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                          )
-                                      ),
-                                      actions: <Widget>[
-                                        FlatButton(
-                                            child: Text(
-                                              'Oh, sure!',
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                            onPressed: () => Navigator.pop(context)
+                                          ),
                                         ),
-                                      ],
-                                      backgroundColor: Colors.white,
-                                    ),
+                                        onPressed: () =>
+                                            Navigator.pop(context)),
+                                  ],
+                                  backgroundColor: Colors.white,
+                                ),
                                 barrierDismissible: false,
                               );
                             }
@@ -190,24 +189,25 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
     );
   }
 
-  queryCity(String city) async { //Calling the city repo
-    if(city.length != 0){
+  queryCity(String city) async {
+    //Calling the city repo
+    if (city.length != 0) {
       List responseList;
       responseList = await SearchRepoImpl().getList(city);
       responseList.forEach((city) => print(city));
-      if(responseList.length == 0){
+      if (responseList.length == 0) {
         SearchV = true;
-      }else {
+      } else {
         SearchV = false;
       }
       setState(() {
         cityList = responseList;
-        if(!SearchV){
+        if (!SearchV) {
           aController.forward();
-        }else
+        } else
           aController.reverse();
       });
-    }else {
+    } else {
       setState(() {
         cityList = [];
         aController.reverse();
@@ -216,10 +216,11 @@ class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateM
     }
   }
 
-  setCity(String city, int index){
+  setCity(String city, int index) {
     print(cityList[index]);
     cityController.text = cityList[index];
-    widget.weatherBloc.add(FetchData(cityController.text)); //Send the city to the Bloc, this can be added to a function in the future
+    widget.weatherBloc.add(FetchData(cityController
+        .text)); //Send the city to the Bloc, this can be added to a function in the future
     Navigator.pop(context);
     print('Search exit');
     queryCity(cityList[index]);
