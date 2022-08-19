@@ -30,7 +30,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_dotenv: ^5.0.2
 
 flutter:
 
@@ -39,7 +38,6 @@ flutter:
     - assets/img/
     - assets/icons/
     - assets/animations/
-    - .env
   fonts:
     - family: Inconsolata
       fonts:

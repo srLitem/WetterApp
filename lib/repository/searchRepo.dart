@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class SearchRepo {
   Future<List> getList(String cityQ);
@@ -10,7 +9,7 @@ abstract class SearchRepo {
 
 class SearchRepoImpl implements SearchRepo {
   List<String?> _places = [];
-  String? apiKey = DotEnv().env['GMAPKEY'];
+  String? apiKey = 'AIzaSyA3RW68RosUuxWUIthwRwRSduGXgeZrG-A';
 
   Future<List> getList(String cityQ) async {
     debugPrint('Searching API location for $cityQ');
