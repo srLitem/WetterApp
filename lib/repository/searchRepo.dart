@@ -4,28 +4,26 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-
-abstract class SearchRepo{
+abstract class SearchRepo {
   Future<List> getList(String cityQ);
 }
 
-class SearchRepoImpl implements SearchRepo{
-
+class SearchRepoImpl implements SearchRepo {
   List<String> _places = [];
   String apiKey = DotEnv().env['GMAPKEY'];
 
-  Future<List> getList(String cityQ) async{
-
+  Future<List> getList(String cityQ) async {
     debugPrint('Searching API location for $cityQ');
-    String url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=$apiKey&input=$cityQ';
-    http.Response response  = await http.get(url);
-    if(response.statusCode == 200){
+    String url =
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=$apiKey&input=$cityQ';
+    http.Response response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
       var jsonData = json.decode(response.body);
-      for (int i=0; i < jsonData['predictions'].length; i++){
+      for (int i = 0; i < jsonData['predictions'].length; i++) {
         _places.add(jsonData['predictions'][i]['description']);
       }
       return _places;
-    }else
+    } else
       throw Exception();
   }
 }

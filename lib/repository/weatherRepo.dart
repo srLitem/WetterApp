@@ -8,19 +8,18 @@ abstract class WeatherRepo {
   Future<WeatherModel> getData(String city);
 }
 
-class WeatherRepoImpl implements WeatherRepo{
-
-  Future<WeatherModel> getData(String city) async{
-    String apiUrl = 'http://litem-weather-webapp.herokuapp.com/weather?address=$city';
+class WeatherRepoImpl implements WeatherRepo {
+  Future<WeatherModel> getData(String city) async {
+    String apiUrl =
+        'http://litem-weather-webapp.herokuapp.com/weather?address=$city';
     debugPrint(apiUrl);
-    http.Response response = await http.get(apiUrl);
-    if(response.statusCode ==200) {
+    http.Response response = await http.get(Uri.parse(apiUrl));
+    if (response.statusCode == 200) {
       var jsonData = json.decode(response.body);
       debugPrint(response.body);
       return WeatherModel.fromJson(jsonData);
-    } else{
+    } else {
       throw Exception();
     }
   }
-
 }

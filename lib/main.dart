@@ -5,18 +5,17 @@ import 'package:the_wetter/repository/weatherRepo.dart';
 import 'package:the_wetter/widget/structure.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-
 void main() async {
-  await DotEnv().load('.env');
+  await DotEnv().load();
   runApp(MyApp());
-  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => WeatherBloc(WeatherRepoImpl()),
+      create: (context) => WeatherBloc(),
       child: MaterialApp(
         title: 'Wetter',
         theme: ThemeData(
@@ -26,4 +25,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-  }
+}
