@@ -27,6 +27,8 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   cupertino_icons: ^1.0.5
   auto_size_text: ^3.0.0
+  dotenv: ^4.0.1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +41,7 @@ flutter:
     - assets/img/
     - assets/icons/
     - assets/animations/
+    - .env
   fonts:
     - family: Inconsolata
       fonts:

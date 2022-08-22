@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -9,7 +10,7 @@ abstract class SearchRepo {
 
 class SearchRepoImpl implements SearchRepo {
   List<String?> _places = [];
-  String? apiKey = 'AIzaSyA3RW68RosUuxWUIthwRwRSduGXgeZrG-A';
+  String apiKey = dotenv.env['GAPI_KEY'] ?? "Invalid API";
 
   Future<List> getList(String cityQ) async {
     debugPrint('Searching API location for $cityQ');
