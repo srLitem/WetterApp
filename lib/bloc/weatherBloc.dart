@@ -9,7 +9,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherModel? weatherInfo;
 
   WeatherBloc() : super(WeatherInitialState()) {
-    on<FetchData>(fetchData);
+    on<FetchData>(((event, emit) async {
+      await fetchData(event, emit);
+    }));
   }
 
   Future<void> fetchData(FetchData event, Emitter<WeatherState> emit) async {
