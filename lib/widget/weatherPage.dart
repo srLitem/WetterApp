@@ -17,54 +17,30 @@ class WeatherPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Background(setColor(weatherModel.iconito), weatherModel.imageURL),
-          LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              if (constraints.maxHeight < 800) {
-                return Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 50,
-                      ),
-                      child: TopBar(weatherModel.address, weatherBloc,
-                          weatherModel.imageURL), //Topbar
-                    ), // Padding for the Topbar
-                    Container(
-                      child: WeatherInfo(
-                          weatherModel.temperature,
-                          weatherModel.summary,
-                          weatherModel.forecast,
-                          weatherModel.precip,
-                          weatherModel.iconito),
-                    ), // Weather information
-                  ],
-                );
-              } else {
-                return Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 50,
-                      ),
-                      child: TopBar(weatherModel.address, weatherBloc,
-                          weatherModel.imageURL), //Topbar
-                    ), // Padding for the Topbar
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 230,
-                      ),
-                      child: WeatherInfo(
-                          weatherModel.temperature,
-                          weatherModel.summary,
-                          weatherModel.forecast,
-                          weatherModel.precip,
-                          weatherModel.iconito),
-                    ), // Weather information
-                  ],
-                );
-              }
-            },
-          ),
+          ListView(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                //* Top Search bar
+                child: TopBar(weatherModel.address, weatherBloc,
+                    weatherModel.imageURL), //Topbar
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              //* Displayed information
+              Container(
+                child: WeatherInfo(
+                    weatherModel.temperature,
+                    weatherModel.summary,
+                    weatherModel.forecast,
+                    weatherModel.precip,
+                    weatherModel.iconito),
+              ), // Weather information
+            ],
+          )
         ],
       ),
     );

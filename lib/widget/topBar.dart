@@ -3,8 +3,7 @@ import 'package:the_wetter/bloc/weatherBloc.dart';
 import 'package:the_wetter/widget/searchB.dart';
 import 'package:the_wetter/widget/searchPage.dart';
 
-class TopBar extends StatefulWidget{
-
+class TopBar extends StatefulWidget {
   String? city;
   String? imgURL;
   WeatherBloc? weatherBloc;
@@ -15,11 +14,9 @@ class TopBar extends StatefulWidget{
   State<StatefulWidget> createState() {
     return _Topbar();
   }
-
 }
 
-class _Topbar extends State<TopBar>{
-
+class _Topbar extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return Hero(
@@ -37,13 +34,14 @@ class _Topbar extends State<TopBar>{
               borderRadius: BorderRadius.circular(10),
               color: Colors.grey.withOpacity(0.5),
               child: InkWell(
-                onTap: (){
+                onTap: () {
                   print('Search tapped');
-                  Navigator.push(context, MaterialPageRoute( //Redirect to the SearchPage
-                    builder: (context){
-                      return SearchPage(Colors.black.withOpacity(0.35), widget.weatherBloc, widget.imgURL);
-                    }
-                  ));
+                  Navigator.push(context,
+                      MaterialPageRoute(//Redirect to the SearchPage
+                          builder: (context) {
+                    return SearchPage(Colors.black.withOpacity(0.35),
+                        widget.weatherBloc, widget.imgURL);
+                  }));
                 },
                 child: Stack(
                   alignment: Alignment.center,
@@ -57,10 +55,12 @@ class _Topbar extends State<TopBar>{
                       width: 400,
                     ),
                     Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SearchB(17.0),
-                        SizedBox(width: 5,),
+                        SizedBox(
+                          width: 5,
+                        ),
                         Text(
                           widget.city!, //Name of the city
                           style: TextStyle(
@@ -80,7 +80,4 @@ class _Topbar extends State<TopBar>{
       ),
     );
   }
-
-
-
 }

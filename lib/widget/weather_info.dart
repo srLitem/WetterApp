@@ -1,26 +1,26 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class WeatherInfo extends StatelessWidget{
+class WeatherInfo extends StatelessWidget {
   var temperature;
   var forecast;
   var precip;
   var summary;
   var iconito;
 
-  WeatherInfo(this.temperature, this.summary, this.forecast,this.precip, this.iconito);
+  WeatherInfo(
+      this.temperature, this.summary, this.forecast, this.precip, this.iconito);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-       Container(
-        child: Image.asset(
-              'assets/icons/$iconito.png',
-              scale: 3.5,
-              color: Colors.white,
+        Container(
+          child: Image.asset(
+            'assets/icons/$iconito.png',
+            scale: 3.5,
+            color: Colors.white,
+          ),
         ),
-       ),
         SizedBox(height: 30),
         Text(
           summary,
@@ -32,7 +32,8 @@ class WeatherInfo extends StatelessWidget{
           ),
         ),
         SizedBox(height: 20),
-        Stack( //Container of the weather information
+        Stack(
+          //Container of the weather information
           alignment: Alignment.center,
           children: <Widget>[
             Container(
@@ -40,8 +41,8 @@ class WeatherInfo extends StatelessWidget{
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.4),
               ),
-              height: 300,
-              width: 400,
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 0.95,
             ),
             Column(
               children: <Widget>[
@@ -85,7 +86,9 @@ class WeatherInfo extends StatelessWidget{
                     right: 30,
                   ),
                   child: Text(
-                    'There is a ' + precip.round().toString() + '% chance of rain',
+                    'There is a ' +
+                        precip.round().toString() +
+                        '% chance of rain',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
@@ -102,9 +105,9 @@ class WeatherInfo extends StatelessWidget{
     );
   }
 
-  String day(){
+  String day() {
     late String result;
-    switch(DateTime.now().weekday){
+    switch (DateTime.now().weekday) {
       case 1:
         result = 'Monday';
         break;
@@ -128,6 +131,10 @@ class WeatherInfo extends StatelessWidget{
         break;
     }
 
-    return result + ' ' + DateTime.now().hour.toString() + ':' + DateTime.now().minute.toString();
+    return result +
+        ' ' +
+        DateTime.now().hour.toString() +
+        ':' +
+        DateTime.now().minute.toString();
   }
 }

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Inconsolata',
         ),
-        home: Structure(),
+        home: SafeArea(child: Structure()),
       ),
     );
   }
