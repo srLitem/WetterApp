@@ -5,10 +5,13 @@ import 'package:the_wetter/model/weatherModel.dart';
 import 'package:the_wetter/repository/weatherRepo.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  late WeatherRepo repo;
+  WeatherRepo repo = WeatherRepoImpl();
   WeatherModel? weatherInfo;
 
   WeatherBloc() : super(WeatherInitialState()) {
+    on<LoadData>(
+      (event, emit) => loadingScreen(event, emit),
+    );
     on<FetchData>(((event, emit) async {
       await fetchData(event, emit);
     }));
@@ -25,6 +28,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     } catch (e) {
       emit(WeatherErrorState(e.toString()));
     }
+  }
+
+  void loadingScreen(LoadData event, Emitter<WeatherState> emit) async {
+    emit(WeatherLoadingState());
   }
 }
 
