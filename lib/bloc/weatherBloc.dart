@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:the_wetter/bloc/weatherEvent.dart';
 import 'package:the_wetter/bloc/weatherState.dart';
 import 'package:the_wetter/model/weatherModel.dart';
@@ -9,8 +8,27 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   late WeatherRepo repo;
   WeatherModel? weatherInfo;
 
-  WeatherBloc() : super(WeatherInitialState());
+  WeatherBloc() : super(WeatherInitialState()) {
+    on<FetchData>(fetchData);
+  }
 
+  Future<void> fetchData(FetchData event, Emitter<WeatherState> emit) async {
+    emit(WeatherLoadingState());
+    try {
+      print('Loading data with:');
+      print(event.city);
+      final weatherInfo = await repo.getData(event.city);
+      print('Data loaded');
+      emit(WeatherShowState(weatherInfo));
+    } catch (e) {
+      emit(WeatherErrorState(e.toString()));
+    }
+  }
+}
+
+
+  
+/*
   @override
   Stream<WeatherState> mapEventToState(WeatherEvent event) async* {
     if (event is FetchData) {
@@ -27,5 +45,5 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     } else {
       yield WeatherToSearchState();
     }
-  }
-}
+  }*/
+
