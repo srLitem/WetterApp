@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => WeatherBloc(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Wetter',
         theme: ThemeData(
           fontFamily: 'Inconsolata',

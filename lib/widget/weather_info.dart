@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class WeatherInfo extends StatelessWidget {
@@ -46,22 +47,27 @@ class WeatherInfo extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
-                Text(
+                AutoSizeText(
                   temperature.round().toString() + '°',
                   style: TextStyle(
-                    fontSize: 80,
                     fontWeight: FontWeight.bold,
                     color: Colors.white.withOpacity(.9),
                   ),
+                  minFontSize: 70,
+                  stepGranularity: 10,
+                  maxFontSize: 80,
+                  maxLines: 1,
                 ),
                 SizedBox(height: 5),
-                Text(
+                AutoSizeText(
                   day(),
                   style: TextStyle(
-                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white.withOpacity(.9),
                   ),
+                  minFontSize: 20,
+                  stepGranularity: 2,
+                  maxFontSize: 24,
                 ),
                 SizedBox(height: 30),
                 Padding(
@@ -69,32 +75,36 @@ class WeatherInfo extends StatelessWidget {
                     left: 10,
                     right: 10,
                   ),
-                  child: Text(
+                  child: AutoSizeText(
                     forecast,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.white.withOpacity(.9),
                     ),
+                    minFontSize: 22,
+                    stepGranularity: 2,
+                    maxFontSize: 26,
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 15),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 30,
                     right: 30,
                   ),
-                  child: Text(
+                  child: AutoSizeText(
                     'There is a ' +
                         precip.round().toString() +
                         '% chance of rain',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.white.withOpacity(.9),
                     ),
+                    minFontSize: 20,
+                    maxFontSize: 24,
+                    maxLines: 3,
                   ),
                 ),
               ],

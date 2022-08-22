@@ -19,16 +19,12 @@ class WeatherPage extends StatelessWidget {
           Background(setColor(weatherModel.iconito), weatherModel.imageURL),
           ListView(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 20,
-                ),
-                //* Top Search bar
-                child: TopBar(weatherModel.address, weatherBloc,
-                    weatherModel.imageURL), //Topbar
-              ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              TopBar(weatherModel.address, weatherBloc, weatherModel.imageURL),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               //* Displayed information
               Container(
