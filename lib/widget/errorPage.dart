@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class ErrorPage extends StatelessWidget{
-
+class ErrorPage extends StatelessWidget {
   String message;
 
   ErrorPage(this.message);
@@ -10,9 +9,8 @@ class ErrorPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        child: ListView(
           children: <Widget>[
             Container(
               child: Image.asset(
@@ -30,26 +28,24 @@ class ErrorPage extends StatelessWidget{
               ),
             ),
             SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Text(message)
+            Text(
+              message,
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: 50),
-            Text(
+            AutoSizeText(
               'We are working on this, please, restart the application',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
+              minFontSize: 20,
+              maxFontSize: 24,
             ),
           ],
         ),
       ),
     );
   }
-
 }

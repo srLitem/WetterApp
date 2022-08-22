@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
@@ -57,8 +58,8 @@ class _SearchPageState extends State<SearchPage>
                 Center(
                   child: Container(
                     padding: EdgeInsets.all(100),
-                    height: MediaQuery.of(context).size.height - 150,
-                    width: MediaQuery.of(context).size.width - 20,
+                    height: MediaQuery.of(context).size.height * 0.9,
+                    width: MediaQuery.of(context).size.width * 0.95,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey.withOpacity(0.6),
@@ -134,7 +135,7 @@ class _SearchPageState extends State<SearchPage>
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black,
                                       )),
-                                  content: Text('C\'mon! Give me a city :(',
+                                  content: Text('C\'mon...Give me a city :(',
                                       style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
@@ -160,13 +161,14 @@ class _SearchPageState extends State<SearchPage>
                           },
                           child: Container(
                             child: Center(
-                              child: Text(
+                              child: AutoSizeText(
                                 'Search',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 27,
                                   color: Colors.grey,
                                 ),
+                                maxFontSize: 26,
+                                minFontSize: 22,
                               ),
                             ),
                             decoration: BoxDecoration(
