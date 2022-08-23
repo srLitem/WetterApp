@@ -37,4 +37,6 @@ I worked on improving more things that I expected at the beggining of this "revi
 * **Multiple temperature units**
 * **Autocomplete**: *Originally, the app had an Auto-complete feature that allowed some suggested cities to be shown as the user typed the name of a city. However, **due to Google Cloud billing required for this do be done nowadays, this feature does no longer work.***
 
+---
+
 Thanks for reading and feel free to clone the app, run it and even suggest improvements and features!
