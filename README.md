@@ -31,9 +31,10 @@ However, working with a backend created when I was still learning the basics of 
 My main goal by modifying the code of the application was to make it runnable on the latest stable version of the OS of Android and iOS devices. 
 I worked on improving more things that I expected at the beggining of this "revival process",but **there is still a lot of code to improve** on aspects like Theming, Routing, Reusable code/widgets, responsiveness, internatioalization, better Bloc implementation and more. However, here's a list of features and improvements I would like to add in the future to this simple yet beloved project:
 
-* GeoLocation
-* Widgets implementation
-* Multi-city visualization.
-* Multiple temperature units.
+* **GeoLocation**
+* **Widgets implementation**
+* **Multi-city visualization**
+* **Multiple temperature units**
+* **Autocomplete**: *Originally, the app had an Auto-complete feature that allowed some suggested cities to be shown as the user typed the name of a city. However, **due to Google Cloud billing required for this do be done nowadays, this feature does no longer work.***
 
 Thanks for reading and feel free to clone the app, run it and even suggest improvements and features!
