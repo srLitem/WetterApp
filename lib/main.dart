@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
 import 'package:the_wetter/widget/structure.dart';
 
-void main() async {
+Future<void> main() async {
+  await dotenv.load();
   runApp(MyApp());
 }
 
