@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:the_wetter/widget/structure.dart';
 
 class ErrorPage extends StatelessWidget {
   String message;
@@ -34,7 +35,7 @@ class ErrorPage extends StatelessWidget {
             ),
             SizedBox(height: 50),
             AutoSizeText(
-              'We are working on this, please, restart the application',
+              'We are working on this ;). Please, go back',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
@@ -43,6 +44,17 @@ class ErrorPage extends StatelessWidget {
               minFontSize: 20,
               maxFontSize: 24,
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextButton(
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Structure())),
+              child: AutoSizeText(
+                "Ok, I will",
+                minFontSize: 22,
+              ),
+            )
           ],
         ),
       ),

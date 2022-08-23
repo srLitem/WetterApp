@@ -182,6 +182,18 @@ class _SearchPageState extends State<SearchPage>
                     ],
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.1,
+                      left: MediaQuery.of(context).size.width * 0.03),
+                  child: IconButton(
+                      onPressed: (() => Navigator.pop(context)),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: 30.0,
+                        color: Colors.white,
+                      )),
+                ),
               ],
             ),
           ],

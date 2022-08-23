@@ -42,7 +42,7 @@ class WeatherInfo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.grey.withOpacity(0.4),
               ),
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.45,
               width: MediaQuery.of(context).size.width * 0.95,
             ),
             Column(
