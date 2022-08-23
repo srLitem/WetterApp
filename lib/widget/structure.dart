@@ -22,7 +22,6 @@ class _StructureState extends State<Structure> {
   void initState() {
     super.initState();
     weatherBloc = BlocProvider.of<WeatherBloc>(context);
-    weatherBloc!.add(LoadData());
     weatherBloc!.add(FetchData('Amsterdam'));
   }
 

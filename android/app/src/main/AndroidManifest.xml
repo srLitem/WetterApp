@@ -8,8 +8,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="${applicationName}"
-        android:label="Wetter"
-        android:icon="@mipmap/ic_launcher">
+        android:label="The Wetter"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
