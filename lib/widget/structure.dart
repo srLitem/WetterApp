@@ -4,10 +4,11 @@ import 'package:the_wetter/bloc/weatherBloc.dart';
 import 'package:the_wetter/bloc/weatherEvent.dart';
 import 'package:the_wetter/bloc/weatherState.dart';
 import 'package:the_wetter/model/weatherModel.dart';
-import 'package:the_wetter/widget/searchPage.dart';
-import 'package:the_wetter/widget/weatherPage.dart';
-import 'package:the_wetter/widget/wetterLogo.dart';
-import 'package:the_wetter/widget/errorPage.dart';
+import 'package:the_wetter/widget/screens/searchPage/searchPage.dart';
+import 'package:the_wetter/widget/screens/weatherPage/weatherPage.dart';
+import 'package:the_wetter/widget/screens/errorPage/errorPage.dart';
+
+import 'generic/wetterLogo.dart';
 
 class Structure extends StatefulWidget {
   @override

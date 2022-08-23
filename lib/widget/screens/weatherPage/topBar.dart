@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
-import 'package:the_wetter/widget/searchB.dart';
-import 'package:the_wetter/widget/searchPage.dart';
+import 'package:the_wetter/widget/screens/searchPage/searchB.dart';
+import 'package:the_wetter/widget/screens/searchPage/searchPage.dart';
 
 class TopBar extends StatefulWidget {
   String? city;

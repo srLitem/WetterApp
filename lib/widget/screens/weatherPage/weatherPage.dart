@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
-import 'package:the_wetter/widget/background.dart';
-import 'package:the_wetter/widget/topBar.dart';
-import 'package:the_wetter/widget/weather_info.dart';
+import 'package:the_wetter/widget/generic/background.dart';
+import 'package:the_wetter/widget/screens/weatherPage/topBar.dart';
+import 'package:the_wetter/widget/screens/weatherPage/weather_info.dart';
 import 'package:the_wetter/model/weatherModel.dart';
 
 class WeatherPage extends StatelessWidget {

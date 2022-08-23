@@ -1,10 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:the_wetter/bloc/weatherBloc.dart';
 import 'package:the_wetter/bloc/weatherEvent.dart';
 import 'package:the_wetter/repository/searchRepo.dart';
-import 'package:the_wetter/widget/background.dart';
+import 'package:the_wetter/widget/generic/background.dart';
 
 class SearchPage extends StatefulWidget {
   Color color;
