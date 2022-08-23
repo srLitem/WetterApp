@@ -29,7 +29,7 @@ However, working with a backend created when I was still learning the basics of 
 ### Ideas of improvements
 
 My main goal by modifying the code of the application was to make it runnable on the latest stable version of the OS of Android and iOS devices. 
-I worked on improving more things that I expected at the beggining of this "revival process",but **there is still a lot of code to improve** on aspects like Theming, Routing, Reusable code/widgets, responsiveness, internatioalization, better Bloc implementation and more. However, here's a list of features and improvements I would like to add in the future to this simple yet beloved project:
+I worked on improving more things that I expected at the beggining of this "revival process", but **there is still a lot of code to improve** on aspects like *Theming*, *Routing*, *Reusable code/widgets*, *responsiveness*, *internationalization*, *better Bloc implementation* and more. However, here's a list of features and improvements I would like to add in the future to this simple yet beloved project:
 
 * **GeoLocation**
 * **Widgets implementation**
